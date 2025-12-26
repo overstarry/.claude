@@ -61,7 +61,8 @@ class ConfigSyncer:
                 self.shared_config_dir
                 / self.config["sharedResources"][resource]["path"]
             )
-            target = config_dir / relative_path
+            # 解析目标路径，支持相对路径（如 ../xxx）
+            target = (config_dir / relative_path).resolve()
 
             # 确保父目录存在
             target.parent.mkdir(parents=True, exist_ok=True)
@@ -99,7 +100,8 @@ class ConfigSyncer:
                 self.shared_config_dir
                 / self.config["sharedResources"][resource]["path"]
             )
-            target = config_dir / relative_path
+            # 解析目标路径，支持相对路径（如 ../xxx）
+            target = (config_dir / relative_path).resolve()
 
             # 确保父目录存在
             target.parent.mkdir(parents=True, exist_ok=True)
@@ -138,7 +140,8 @@ class ConfigSyncer:
             resource_mapping = agent_config.get("resourceMapping", {})
 
             for resource, relative_path in resource_mapping.items():
-                target = config_dir / relative_path
+                # 解析目标路径，支持相对路径（如 ../xxx）
+                target = (config_dir / relative_path).resolve()
 
                 if target.is_symlink():
                     link_target = target.readlink()
@@ -167,7 +170,8 @@ class ConfigSyncer:
             resource_mapping = agent_config.get("resourceMapping", {})
 
             for resource, relative_path in resource_mapping.items():
-                target = config_dir / relative_path
+                # 解析目标路径，支持相对路径（如 ../xxx）
+                target = (config_dir / relative_path).resolve()
 
                 if target.is_symlink():
                     target.unlink()

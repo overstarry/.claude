@@ -93,7 +93,8 @@ class SingleItemSyncer:
             print(f"⚠️  {agent} 不支持 {resource_type} 资源")
             return False
 
-        target_base = config_dir / resource_mapping[resource_type]
+        # 解析目标路径，支持相对路径（如 ../xxx）
+        target_base = (config_dir / resource_mapping[resource_type]).resolve()
         target = target_base / item_name
 
         print(
@@ -172,7 +173,8 @@ class SingleItemSyncer:
             print(f"⚠️  {agent} 不支持 {resource_type}")
             return
 
-        target_base = config_dir / resource_mapping[resource_type]
+        # 解析目标路径，支持相对路径（如 ../xxx）
+        target_base = (config_dir / resource_mapping[resource_type]).resolve()
         target = target_base / item_name
 
         print(f"\n📊 {agent} - {resource_type}/{item_name} 状态\n")

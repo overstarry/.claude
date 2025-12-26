@@ -75,7 +75,8 @@ class ResourceSyncer:
         source = (
             self.shared_config_dir / self.config["sharedResources"][resource]["path"]
         )
-        target = config_dir / relative_path
+        # 解析目标路径，支持相对路径（如 ../xxx）
+        target = (config_dir / relative_path).resolve()
 
         print(f"\n{'🔗' if strategy == 'symlink' else '📁'} 同步 {resource} 到 {agent}")
         print(f"  源: {source}")
@@ -148,7 +149,8 @@ class ResourceSyncer:
             print(f"⚠️  {agent} 不支持 {resource}")
             return
 
-        target = config_dir / resource_mapping[resource]
+        # 解析目标路径，支持相对路径（如 ../xxx）
+        target = (config_dir / resource_mapping[resource]).resolve()
 
         print(f"\n📊 {agent} - {resource} 状态\n")
 
