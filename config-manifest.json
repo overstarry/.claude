@@ -26,7 +26,7 @@
         "skills": {
             "path": "skills",
             "description": "技能配置",
-            "directories": ["frontend-design", "seo-optimizer"]
+            "directories": ["frontend-design", "seo-optimizer", "ui-ux-pro-max"]
         }
     },
 
@@ -68,7 +68,7 @@
 
     "metadata": {
         "createdAt": "2025-12-26",
-        "lastUpdated": "2025-12-26",
+        "lastUpdated": "2026-01-01",
         "author": "overstarry"
     }
 }

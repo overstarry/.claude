@@ -62,6 +62,14 @@
 
 # 场景 4: 使用复制模式 (而非符号链接)
 ./sync-single.py --agent claude-code --type skills --item seo-optimizer --strategy copy
+
+# 场景 5: 同步 UI/UX Pro Max 设计智能系统
+./sync-single.py --agent claude-code --type skills --item ui-ux-pro-max
+
+# 场景 6: 同步所有前端相关 skills
+./sync-single.py --agent claude-code --type skills --item frontend-design
+./sync-single.py --agent claude-code --type skills --item ui-ux-pro-max
+./sync-single.py --agent claude-code --type skills --item seo-optimizer
 ```
 
 ## 支持的 Code Agents
@@ -82,6 +90,7 @@
 ### Skills
 
 - [frontend-design](https://github.com/anthropics/skills/tree/main/skills/frontend-design) - 前端设计
+- [ui-ux-pro-max](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill) - UI/UX 设计智能系统 (50+ 样式、21 种配色、50 种字体组合、20 种图表)
 - seo-optimizer - SEO 优化
 
 ### Commands
