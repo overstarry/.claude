@@ -91,7 +91,31 @@
 
 - [frontend-design](https://github.com/anthropics/skills/tree/main/skills/frontend-design) - 前端设计
 - [ui-ux-pro-max](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill) - UI/UX 设计智能系统 (50+ 样式、21 种配色、50 种字体组合、20 种图表)
+- [planning-with-files](https://github.com/OthmanAdi/planning-with-files) - 规划与文件管理 (Git Submodule)
 - seo-optimizer - SEO 优化
+
+## Git Submodule 管理
+
+本仓库使用 Git Submodule 引入外部 skills，便于保持与上游仓库同步。
+
+### 常用命令
+
+```bash
+# 克隆项目时（包含所有 submodules）
+git clone --recursive <repo-url>
+
+# 已克隆后初始化 submodules
+git submodule update --init --recursive
+
+# 更新指定 submodule 到最新版本
+git submodule update --remote skills/planning-with-files
+
+# 更新所有 submodules
+git submodule update --remote
+
+# 查看 submodule 状态
+git submodule status
+```
 
 ### Commands
 
