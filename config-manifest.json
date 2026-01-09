@@ -1,74 +1,79 @@
 {
-    "$schema": "https://json-schema.org/draft-07/schema#",
-    "version": "1.0.0",
-    "name": "code-agents-shared-config",
-    "description": "跨平台 Code Agents 共享配置清单",
-    "sharedConfigPath": "/home/overstarry/code/.claude",
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "version": "1.0.0",
+  "name": "code-agents-shared-config",
+  "description": "跨平台 Code Agents 共享配置清单",
+  "sharedConfigPath": "/Users/ming/code/agents-tool",
 
-    "supportedAgents": ["claude-code", "opencode", "codex"],
+  "supportedAgents": ["claude-code", "opencode", "codex"],
 
-    "sharedResources": {
-        "agents": {
-            "path": "agents",
-            "description": "AI 代理配置文件",
-            "files": [
-                "code-reviewer.md",
-                "frontend-developer.md",
-                "seo-analyzer.md",
-                "ui-ux-designer.md"
-            ]
-        },
-        "commands": {
-            "path": "commands",
-            "description": "自定义命令",
-            "files": ["fix-github-issue.md"]
-        },
-        "skills": {
-            "path": "skills",
-            "description": "技能配置",
-            "directories": ["frontend-design", "seo-optimizer", "ui-ux-pro-max"]
-        }
+  "sharedResources": {
+    "agents": {
+      "path": "agents",
+      "description": "AI 代理配置文件",
+      "files": [
+        "code-reviewer.md",
+        "frontend-developer.md",
+        "seo-analyzer.md",
+        "ui-ux-designer.md"
+      ]
     },
-
-    "agentCompatibility": {
-        "claude-code": {
-            "configDir": "~/.claude",
-            "supportsSymlinks": true,
-            "resourceMapping": {
-                "agents": "agents",
-                "commands": "commands",
-                "skills": "skills"
-            }
-        },
-        "opencode": {
-            "configDir": "~/.opencode",
-            "supportsSymlinks": true,
-            "resourceMapping": {
-                "agents": ".agents",
-                "commands": "../.config/opencode/command",
-                "skills": "skill"
-            },
-            "notes": "OpenCode uses different paths: skills in ~/.opencode/skill/, commands in ~/.config/opencode/command/"
-        },
-        "codex": {
-            "configDir": "~/.codex",
-            "supportsSymlinks": true,
-            "resourceMapping": {
-                "agents": "agents",
-                "commands": "commands",
-                "skills": "skills"
-            }
-        }
+    "commands": {
+      "path": "commands",
+      "description": "自定义命令",
+      "files": ["fix-github-issue.md"]
     },
-
-    "syncStrategy": {
-        "default": "symlink",
-        "options": ["symlink", "copy", "git-submodule"]
-    },
-
-    "metadata": {
-        "createdAt": "2025-12-26",
-        "lastUpdated": "2026-01-01",
-        "author": "overstarry"
+    "skills": {
+      "path": "skills",
+      "description": "技能配置",
+      "directories": [
+        "frontend-design",
+        "seo-optimizer",
+        "ui-ux-pro-max",
+        "planning-with-files"
+      ]
     }
+  },
+
+  "agentCompatibility": {
+    "claude-code": {
+      "configDir": "~/.claude",
+      "supportsSymlinks": true,
+      "resourceMapping": {
+        "agents": "agents",
+        "commands": "commands",
+        "skills": "skills"
+      }
+    },
+    "opencode": {
+      "configDir": "~/.opencode",
+      "supportsSymlinks": true,
+      "resourceMapping": {
+        "agents": ".agents",
+        "commands": "../.config/opencode/command",
+        "skills": "skill"
+      },
+      "notes": "OpenCode uses different paths: skills in ~/.opencode/skill/, commands in ~/.config/opencode/command/"
+    },
+    "codex": {
+      "configDir": "~/.codex",
+      "supportsSymlinks": true,
+      "resourceMapping": {
+        "agents": "agents",
+        "commands": "commands",
+        "skills": "skills"
+      }
+    }
+  },
+
+  "syncStrategy": {
+    "default": "symlink",
+    "options": ["symlink", "copy", "git-submodule"]
+  },
+
+  "metadata": {
+    "createdAt": "2025-12-26",
+    "lastUpdated": "2026-01-01",
+    "author": "overstarry"
+  }
 }

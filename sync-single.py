@@ -33,6 +33,29 @@ class SingleItemSyncer:
         config_dir = self.config["agentCompatibility"][agent]["configDir"]
         return Path(config_dir).expanduser()
 
+    def _find_skill_md(self, start_path: Path) -> Optional[Path]:
+        """递归查找 SKILL.md 文件
+
+        Args:
+            start_path: 开始搜索的目录
+
+        Returns:
+            SKILL.md 文件的路径，如果找不到则返回 None
+        """
+        # 首先检查当前目录
+        skill_md = start_path / "SKILL.md"
+        if skill_md.exists():
+            return skill_md
+
+        # 递归搜索子目录（最多3层深度，避免无限递归）
+        for depth in range(3):
+            for item in start_path.rglob("SKILL.md"):
+                # 排除隐藏目录
+                if not any(part.startswith('.') for part in item.parts):
+                    return item
+
+        return None
+
     def _backup_if_exists(self, path: Path) -> None:
         """备份现有文件或目录"""
         if path.exists():
@@ -78,6 +101,19 @@ class SingleItemSyncer:
             / self.config["sharedResources"][resource_type]["path"]
         )
         source = source_base / item_name
+
+        # 对于 skills，自动查找 SKILL.md 所在目录
+        if resource_type == "skills" and source.is_dir():
+            skill_md = self._find_skill_md(source)
+            if skill_md:
+                actual_source = skill_md.parent
+                if actual_source != source:
+                    print(f"💡 检测到嵌套 skill 结构")
+                    print(f"   从: {source}")
+                    print(f"   到: {actual_source}")
+                    source = actual_source
+            elif not (source / "SKILL.md").exists():
+                print(f"⚠️  警告: 在 {source} 中找不到 SKILL.md 文件")
 
         if not source.exists():
             print(f"❌ 源不存在: {source}")

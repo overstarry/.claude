@@ -91,7 +91,7 @@
 
 - [frontend-design](https://github.com/anthropics/skills/tree/main/skills/frontend-design) - 前端设计
 - [ui-ux-pro-max](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill) - UI/UX 设计智能系统 (50+ 样式、21 种配色、50 种字体组合、20 种图表)
-- [planning-with-files](https://github.com/OthmanAdi/planning-with-files) - 规划与文件管理 (Git Submodule)
+- [planning-with-files](https://github.com/OthmanAdi/planning-with-files) - 规划与文件管理 (Git Submodule，基于 Manus 的文件式规划系统)
 - seo-optimizer - SEO 优化
 
 ## Git Submodule 管理
