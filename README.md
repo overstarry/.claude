@@ -74,9 +74,31 @@
 
 ## 支持的 Code Agents
 
-- **Claude Code** (`~/.claude/`)
-- **OpenCode** (`~/.opencode/`)
-- **Codex** (`~/.codex/`)
+| Agent | 配置目录 | 支持资源 | 备注 |
+|-------|----------|----------|------|
+| **Claude Code** | `~/.claude/` | agents, commands, skills | 完整支持 |
+| **OpenCode** | `~/.opencode/` | skills | skills 路径: `~/.opencode/skill/` |
+| **Codex** | `~/.codex/` | skills | 遵循 [Agent Skills 规范](https://agentskills.io) |
+
+### Codex Skills 说明
+
+Codex 使用 [OpenAI Agent Skills 标准](https://developers.openai.com/codex/skills)，SKILL.md 需包含：
+
+```yaml
+---
+name: skill-name
+description: 描述技能功能和触发条件
+metadata:
+  short-description: 简短描述（可选）
+---
+```
+
+同步到 Codex：
+```bash
+./sync-config.py --agent codex
+# 或只同步 skills
+./sync-single.py --agent codex --type skills --item <skill-name>
+```
 
 ## 配置资源
 

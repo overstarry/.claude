@@ -51,20 +51,17 @@
       "configDir": "~/.opencode",
       "supportsSymlinks": true,
       "resourceMapping": {
-        "agents": ".agents",
-        "commands": "../.config/opencode/command",
         "skills": "skill"
       },
-      "notes": "OpenCode uses different paths: skills in ~/.opencode/skill/, commands in ~/.config/opencode/command/"
+      "notes": "OpenCode only supports skills. Skills path: ~/.opencode/skill/"
     },
     "codex": {
       "configDir": "~/.codex",
       "supportsSymlinks": true,
       "resourceMapping": {
-        "agents": "agents",
-        "commands": "commands",
         "skills": "skills"
-      }
+      },
+      "notes": "Codex only supports skills. Skills path: ~/.codex/skills/. See https://developers.openai.com/codex/skills"
     }
   },
 
