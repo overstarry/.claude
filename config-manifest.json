@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "name": "code-agents-shared-config",
   "description": "跨平台 Code Agents 共享配置清单",
-  "sharedConfigPath": "/Users/ming/code/agents-tool",
+  "sharedConfigPath": "~/Code/agents-tool",
 
   "supportedAgents": ["claude-code", "opencode", "codex"],
 
