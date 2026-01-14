@@ -5,11 +5,22 @@ description: Opinionated constraints for building better interfaces with agents.
 
 # UI Skills
 
-Opinionated constraints for building better interfaces with agents.
+When invoked, apply these opinionated constraints for building better interfaces.
+
+## How to use
+
+- `/ui-skills`  
+  Apply these constraints to any UI work in this conversation.
+
+- `/ui-skills <file>`  
+  Review the file against all constraints below and output:
+  - violations (quote the exact line/snippet)
+  - why it matters (1 short sentence)
+  - a concrete fix (code-level suggestion)
 
 ## Stack
 
-- MUST use Tailwind CSS defaults (spacing, radius, shadows) before custom values
+- MUST use Tailwind CSS defaults unless custom values already exist or are explicitly requested
 - MUST use `motion/react` (formerly `framer-motion`) when JavaScript animation is required
 - SHOULD use `tw-animate-css` for entrance and micro-animations in Tailwind CSS
 - MUST use `cn` utility (`clsx` + `tailwind-merge`) for class logic
@@ -41,7 +52,7 @@ Opinionated constraints for building better interfaces with agents.
 - SHOULD use `ease-out` on entrance
 - NEVER exceed `200ms` for interaction feedback
 - MUST pause looping animations when off-screen
-- MUST respect `prefers-reduced-motion`
+- SHOULD respect `prefers-reduced-motion`
 - NEVER introduce custom easing curves unless explicitly requested
 - SHOULD avoid animating large images or full-screen surfaces
 
@@ -50,12 +61,12 @@ Opinionated constraints for building better interfaces with agents.
 - MUST use `text-balance` for headings and `text-pretty` for body/paragraphs
 - MUST use `tabular-nums` for data
 - SHOULD use `truncate` or `line-clamp` for dense UI
-- NEVER modify `letter-spacing` (`tracking-`) unless explicitly requested
+- NEVER modify `letter-spacing` (`tracking-*`) unless explicitly requested
 
 ## Layout
 
-- MUST use a fixed `z-index` scale (no arbitrary `z-x`)
-- SHOULD use `size-x` for square elements instead of `w-x` + `h-x`
+- MUST use a fixed `z-index` scale (no arbitrary `z-*`)
+- SHOULD use `size-*` for square elements instead of `w-*` + `h-*`
 
 ## Performance
 

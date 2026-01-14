@@ -65,6 +65,7 @@
 
 # 场景 5: 同步 UI/UX Pro Max 设计智能系统
 ./sync-single.py --agent claude-code --type skills --item ui-ux-pro-max
+./sync-single.py --agent codex --type skills --item ui-uskills
 
 # 场景 6: 同步所有前端相关 skills
 ./sync-single.py --agent claude-code --type skills --item frontend-design
