@@ -111,18 +111,33 @@ class SingleItemSyncer:
                     print(f"💡 找到嵌套 skill: {group_name}/{item_name}")
                     break
 
-        # 对于 skills，自动查找 SKILL.md 所在目录
+        # 对于 skills，检查是否有 agent 专用目录结构 (如 .codex/skills/<item>/)
         if resource_type == "skills" and source.is_dir():
-            skill_md = self._find_skill_md(source)
-            if skill_md:
-                actual_source = skill_md.parent
-                if actual_source != source:
-                    print(f"💡 检测到嵌套 skill 结构")
+            agent_dir_map = {
+                "claude-code": ".claude",
+                "codex": ".codex",
+                "opencode": ".opencode",
+            }
+            agent_subdir = agent_dir_map.get(agent)
+            if agent_subdir:
+                agent_skill_path = source / agent_subdir / "skills" / item_name
+                if agent_skill_path.is_dir():
+                    print(f"💡 检测到 agent 专用 skill 结构")
                     print(f"   从: {source}")
-                    print(f"   到: {actual_source}")
-                    source = actual_source
-            elif not (source / "SKILL.md").exists():
-                print(f"⚠️  警告: 在 {source} 中找不到 SKILL.md 文件")
+                    print(f"   到: {agent_skill_path}")
+                    source = agent_skill_path
+                else:
+                    # 回退到查找 SKILL.md
+                    skill_md = self._find_skill_md(source)
+                    if skill_md:
+                        actual_source = skill_md.parent
+                        if actual_source != source:
+                            print(f"💡 检测到嵌套 skill 结构")
+                            print(f"   从: {source}")
+                            print(f"   到: {actual_source}")
+                            source = actual_source
+                    elif not (source / "SKILL.md").exists():
+                        print(f"⚠️  警告: 在 {source} 中找不到 SKILL.md 文件")
 
         if not source.exists():
             print(f"❌ 源不存在: {source}")

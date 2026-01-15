@@ -1,4 +1,4 @@
-# Code Agents 共享配置仓库
+/# Code Agents 共享配置仓库
 
 在 Claude Code、OpenCode、Codex 等多个 Code Agent 之间共享 agents、commands、skills 配置。
 
