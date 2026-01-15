@@ -29,7 +29,6 @@
       "directories": [
         "frontend-design",
         "seo-optimizer",
-        "ui-ux-pro-max",
         "planning-with-files",
         "skill-writer",
         "ui-skills"
@@ -41,6 +40,14 @@
             "react-best-practices",
             "web-design-guidelines"
           ]
+        },
+        "ui-ux-pro-max": {
+          "agentPaths": {
+            "claude-code": "ui-ux-pro-max/.claude/skills/ui-ux-pro-max",
+            "codex": "ui-ux-pro-max/.codex/skills/ui-ux-pro-max"
+          },
+          "default": "ui-ux-pro-max/.claude/skills/ui-ux-pro-max",
+          "skills": ["ui-ux-pro-max"]
         }
       }
     }

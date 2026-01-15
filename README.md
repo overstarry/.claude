@@ -67,6 +67,7 @@
 ./sync-single.py --agent claude-code --type skills --item ui-ux-pro-max
 ./sync-single.py --agent codex --type skills --item ui-skills
 ./sync-single.py --agent codex --type skills --item react-best-practices
+./sync-single.py --agent codex --type skills --item ui-ux-pro-max
 
 # 场景 6: 同步所有前端相关 skills
 ./sync-single.py --agent claude-code --type skills --item frontend-design
