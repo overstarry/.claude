@@ -32,7 +32,9 @@
         "ui-ux-pro-max",
         "planning-with-files",
         "skill-writer",
-        "ui-skills"
+        "ui-skills",
+        "vercel-agent-skills/skills/react-best-practices",
+        "vercel-agent-skills/skills/web-design-guidelines"
       ]
     }
   },

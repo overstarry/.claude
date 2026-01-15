@@ -1,3 +1,6 @@
 [submodule "skills/planning-with-files"]
 	path = skills/planning-with-files
 	url = https://github.com/OthmanAdi/planning-with-files
+[submodule "skills/vercel-agent-skills"]
+	path = skills/vercel-agent-skills
+	url = https://github.com/vercel-labs/agent-skills.git
