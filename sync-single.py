@@ -102,6 +102,15 @@ class SingleItemSyncer:
         )
         source = source_base / item_name
 
+        # 检查嵌套 skills
+        if resource_type == "skills" and not source.exists():
+            nested_skills = self.config["sharedResources"]["skills"].get("nestedSkills", {})
+            for group_name, group_config in nested_skills.items():
+                if item_name in group_config.get("skills", []):
+                    source = source_base / group_config["basePath"] / item_name
+                    print(f"💡 找到嵌套 skill: {group_name}/{item_name}")
+                    break
+
         # 对于 skills，自动查找 SKILL.md 所在目录
         if resource_type == "skills" and source.is_dir():
             skill_md = self._find_skill_md(source)
@@ -185,6 +194,16 @@ class SingleItemSyncer:
                 print(f"   - {item}")
         else:
             print("   (空)")
+
+        # 显示嵌套 skills
+        if resource_type == "skills":
+            nested_skills = self.config["sharedResources"]["skills"].get("nestedSkills", {})
+            for group_name, group_config in nested_skills.items():
+                skills = group_config.get("skills", [])
+                if skills:
+                    print(f"   [{group_name}]")
+                    for skill in sorted(skills):
+                        print(f"     - {skill}")
 
     def list_all_items(self) -> None:
         """列出所有可用的项目"""

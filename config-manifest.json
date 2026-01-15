@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "name": "code-agents-shared-config",
   "description": "跨平台 Code Agents 共享配置清单",
-  "sharedConfigPath": "~/Code/agents-tool",
+  "sharedConfigPath": "~/code/agents-tool",
 
   "supportedAgents": ["claude-code", "opencode", "codex"],
 
@@ -32,10 +32,17 @@
         "ui-ux-pro-max",
         "planning-with-files",
         "skill-writer",
-        "ui-skills",
-        "vercel-agent-skills/skills/react-best-practices",
-        "vercel-agent-skills/skills/web-design-guidelines"
-      ]
+        "ui-skills"
+      ],
+      "nestedSkills": {
+        "vercel-agent-skills": {
+          "basePath": "vercel-agent-skills/skills",
+          "skills": [
+            "react-best-practices",
+            "web-design-guidelines"
+          ]
+        }
+      }
     }
   },
 
